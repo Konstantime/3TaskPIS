@@ -1,0 +1,8 @@
+C:\Users\Kostya\source\repos\PIS\2TaskPIS\2TaskPIS\bin\Debug\2TaskPIS.exe.config
+C:\Users\Kostya\source\repos\PIS\2TaskPIS\2TaskPIS\bin\Debug\2TaskPIS.exe
+C:\Users\Kostya\source\repos\PIS\2TaskPIS\2TaskPIS\bin\Debug\2TaskPIS.pdb
+C:\Users\Kostya\source\repos\PIS\2TaskPIS\2TaskPIS\obj\Debug\2TaskPIS.csproj.AssemblyReference.cache
+C:\Users\Kostya\source\repos\PIS\2TaskPIS\2TaskPIS\obj\Debug\2TaskPIS.csproj.SuggestedBindingRedirects.cache
+C:\Users\Kostya\source\repos\PIS\2TaskPIS\2TaskPIS\obj\Debug\2TaskPIS.csproj.CoreCompileInputs.cache
+C:\Users\Kostya\source\repos\PIS\2TaskPIS\2TaskPIS\obj\Debug\2TaskPIS.exe
+C:\Users\Kostya\source\repos\PIS\2TaskPIS\2TaskPIS\obj\Debug\2TaskPIS.pdb
