@@ -1,0 +1,2 @@
+C:\Users\Kostya\source\repos\PIS\3TaskPIS\UnitTestProject2\obj\Debug\UnitTestProject2.csproj.AssemblyReference.cache
+C:\Users\Kostya\source\repos\PIS\3TaskPIS\UnitTestProject2\obj\Debug\UnitTestProject2.csproj.CoreCompileInputs.cache

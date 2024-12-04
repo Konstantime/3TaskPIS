@@ -15,28 +15,33 @@ public enum TypeMeterData
 
 namespace _2TaskPIS {
     internal class Program {
+
+        static MeterDataReader meterDataReader = new MeterDataReader();
+        static DataProcessing dataProcessing = new DataProcessing();
         static void Main(string[] args) {  //  19   вариант 2
 
-            List<MeterData> meterDatas = CreateListMeterDatas();
+            List<IMeterData> meterDatas = CreateListMeterDatas("C:/Users/Kostya/OneDrive/Desktop/MeterData.txt");
 
             WritingAllValues(meterDatas);
 
             Console.ReadLine();
         }
 
-        static private void WritingAllValues( List<MeterData> meterDatas ) {
+        static private void WritingAllValues( List<IMeterData> meterDatas ) {
             foreach( var meterData in meterDatas ) {
                 Console.WriteLine( meterData.GetAllProperties() );
             }
         }
 
-        static private List<MeterData> CreateListMeterDatas() {
-            string[] lines = GetLinesCodesFromTextFile("C:/Users/Kostya/OneDrive/Desktop/MeterData.txt");
-            List<MeterData> meterDatas = new List<MeterData>();
+        static public List<IMeterData> CreateListMeterDatas(string path) {
+            string[] lines = meterDataReader.GetLinesCodesFromTextFile(path);
+            List<IMeterData> meterDatas = new List<IMeterData>();
 
             TypeMeterData typeMeterData;
             for (int i = 0; i < lines.Length; i++) {
-                typeMeterData = DetermineTypeOfObject(lines[i]);
+                if( dataProcessing.IsCorrectObject(lines[i]) == false) { continue; }
+
+                typeMeterData = dataProcessing.DetermineTypeOfObject(lines[i]);
 
                 if (GetMeterData(typeMeterData, lines[i]) != null) {
                     meterDatas.Add(GetMeterData(typeMeterData, lines[i]));
@@ -46,7 +51,7 @@ namespace _2TaskPIS {
             return meterDatas;
         }
 
-        static private MeterData GetMeterData(TypeMeterData typeMeterData, string lineCode) {
+        static public IMeterData GetMeterData(TypeMeterData typeMeterData, string lineCode) {
             switch (typeMeterData) {
                 case TypeMeterData.MeterDataWater:
                     var meterDataWater = new MeterDataWater();
@@ -60,26 +65,6 @@ namespace _2TaskPIS {
 
                 default:
                     return null;
-            }
-        }
-
-        static private string[] GetLinesCodesFromTextFile(string filePath) {
-            string fileContent = GetTextFromFile(filePath);
-
-            string[] result = fileContent.Split('\r');
-
-            return result;
-        }
-
-        static private string GetTextFromFile(string filePath) {
-            try {
-                using (StreamReader reader = new StreamReader(filePath)) {
-                    return reader.ReadToEnd();
-                }
-            }
-            catch (IOException ex) {
-                Console.WriteLine($"Error reading file: {ex.Message}");
-                return null;
             }
         }
 
@@ -101,7 +86,6 @@ namespace _2TaskPIS {
             int indexLastForging = codeObject.IndexOf("'", indexFirstForging + 1);
 
             return codeObject.Substring(indexFirstForging + 1, indexLastForging - indexFirstForging - 1);
-
         }
     }
 }

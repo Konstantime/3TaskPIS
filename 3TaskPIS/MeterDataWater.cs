@@ -1,46 +1,61 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace _2TaskPIS
-{
-    public class MeterDataWater: MeterData{
-        public bool isСold { get; set; }
+namespace _2TaskPIS {
+    public class MeterDataWater : IMeterData {
+        public string TypeResource { get; set; }
+        public DateTime Date { get; set; }
+        public double Value { get; set; }
+        public bool IsUsed { get; set; }
+        public bool isCold { get; set; }
         public int quantity { get; set; }
-
+        private DataProcessing dataProcessing = new DataProcessing();
 
         public MeterDataWater() { }
 
-        public MeterDataWater(string _type, DateTime _date, double _value, bool _isUsed, bool _isСold, int _quantity) {
-            typeResourse = _type;
-            date = _date;
-            value = _value;
-            isUsed = _isUsed;
-            isСold = _isСold;
-            quantity = _quantity;
+        public MeterDataWater(string type, DateTime date, double value, bool isUsed, bool isCold, int quantity) {
+            TypeResource = type;
+            this.Date = date;
+            this.Value = value;
+            this.IsUsed = isUsed;
+            this.isCold = isCold;
+            this.quantity = quantity;
         }
 
-        public override void SetFieldValues(string code) {
-            code = code.Replace("'", "");
-            string[] dates = code.Split(';');
-
-            typeResourse = dates[0];
-            date = DateTime.ParseExact(dates[1], "yyyy.MM.dd", CultureInfo.InvariantCulture);
-            value = double.Parse(dates[2], CultureInfo.InvariantCulture);
-            isUsed = bool.Parse(dates[3]);
-
-            isСold = bool.Parse(dates[4]);
-            quantity = int.Parse(dates[5], CultureInfo.InvariantCulture);
+        public void SetFieldValues(string code) {
+            (Date, Value, IsUsed, isCold, quantity) = dataProcessing.DefineTheseParametersForMeterDataWater(code);
+            TypeResource = dataProcessing.DetermineTypeOfObjectFormatString(code);
         }
 
-        public override string GetAllProperties() {
-            string result = typeResourse + " " + date + " " + value + " " + isUsed
-                + " " + isСold + " " + quantity;
-            return result;
+        public string GetAllProperties() {
+            return $"{TypeResource} {Date.Day}.{Date.Month}.{Date.Year} {Value} {IsUsed} {isCold} {quantity}";
+        }
+
+        // Переопределение метода Equals для проверки равенства по значениям свойств
+        public override bool Equals(object obj) {
+            if (obj is MeterDataWater other) {
+                return TypeResource == other.TypeResource &&
+                       Date == other.Date &&
+                       Value.Equals(other.Value) &&
+                       IsUsed == other.IsUsed &&
+                       isCold == other.isCold &&
+                       quantity == other.quantity;
+            }
+
+            return false;
+        }
+
+        // Переопределение метода GetHashCode
+        public override int GetHashCode() {
+            // Простой способ комбинирования хеш-кодов свойств
+            int hash = 17;
+            hash = hash * 31 + (TypeResource?.GetHashCode() ?? 0);
+            hash = hash * 31 + Date.GetHashCode();
+            hash = hash * 31 + Value.GetHashCode();
+            hash = hash * 31 + IsUsed.GetHashCode();
+            hash = hash * 31 + isCold.GetHashCode();
+            hash = hash * 31 + quantity.GetHashCode();
+
+            return hash;
         }
     }
 }

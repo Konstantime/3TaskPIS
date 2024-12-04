@@ -1,46 +1,67 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _2TaskPIS {
-    public class MeterDataElectricity: MeterData {
-        public int numberWatts { get; set; }
-        public int frequency { get; set; }
-        public string provider { get; set; }
+    public class MeterDataElectricity : IMeterData {
+        public string TypeResource { get; set; }
+        public DateTime Date { get; set; }
+        public double Value { get; set; }
+        public bool IsUsed { get; set; }
+        public int NumberWatts { get; set; }
+        public int Frequency { get; set; }
+        public string Provider { get; set; }
+        private DataProcessing dataProcessing = new DataProcessing();
 
+        // Конструктор по умолчанию
         public MeterDataElectricity() { }
 
-        public MeterDataElectricity(string _type, DateTime _date, double _value, bool _isUsed, int _numberWatts, int _frequency, string _provider) {
-            typeResourse = _type;
-            date = _date;
-            value = _value;
-            isUsed = _isUsed;
-            numberWatts = _numberWatts;
-            frequency = _frequency;
-            provider = _provider;
+        // Конструктор с параметрами
+        public MeterDataElectricity(string type, DateTime date, double value, bool isUsed, int numberWatts, int frequency, string provider) {
+            TypeResource = type;
+            Date = date;
+            Value = value;
+            IsUsed = isUsed;
+            NumberWatts = numberWatts;
+            Frequency = frequency;
+            Provider = provider;
         }
 
-        public override void SetFieldValues(string code) {
-            code = code.Replace("'", "");
-            string[] dates = code.Split(';');
-
-            typeResourse = dates[0];
-            date = DateTime.ParseExact(dates[1], "yyyy.MM.dd", CultureInfo.InvariantCulture);
-            value = double.Parse(dates[2], CultureInfo.InvariantCulture);
-            isUsed = bool.Parse(dates[3]);
-
-            numberWatts = int.Parse(dates[4], CultureInfo.InvariantCulture);
-            frequency = int.Parse(dates[5], CultureInfo.InvariantCulture);
-            provider = dates[6];
+        public void SetFieldValues(string code) {
+            (Date, Value, IsUsed, NumberWatts, Frequency, Provider) = dataProcessing.DefineTheseParametersForMeterDataElectricity(code);
+            TypeResource = dataProcessing.DetermineTypeOfObjectFormatString(code);
         }
 
-        public override string GetAllProperties() {
-            string result = typeResourse + " " + date + " " + value + " " + isUsed
-                + " " + numberWatts + " " + frequency + " " + provider;
-            return result;
+        public string GetAllProperties() {
+            return $"{TypeResource} {Date.Day}.{Date.Month}.{Date.Year} {Value} {IsUsed} {NumberWatts} {Frequency} {Provider}";
+        }
+
+        // Переопределение метода Equals для проверки равенства по значениям свойств
+        public override bool Equals(object obj) {
+            if (obj is MeterDataElectricity other) {
+                return TypeResource == other.TypeResource &&
+                       Date == other.Date &&
+                       Value.Equals(other.Value) &&
+                       IsUsed == other.IsUsed &&
+                       NumberWatts == other.NumberWatts &&
+                       Frequency == other.Frequency &&
+                       Provider == other.Provider;
+            }
+
+            return false;
+        }
+
+        // Переопределение метода GetHashCode
+        public override int GetHashCode() {
+            // Комбинирование хеш-кодов свойств
+            int hash = 17;
+            hash = hash * 31 + (TypeResource?.GetHashCode() ?? 0);
+            hash = hash * 31 + Date.GetHashCode();
+            hash = hash * 31 + Value.GetHashCode();
+            hash = hash * 31 + IsUsed.GetHashCode();
+            hash = hash * 31 + NumberWatts.GetHashCode();
+            hash = hash * 31 + Frequency.GetHashCode();
+            hash = hash * 31 + (Provider?.GetHashCode() ?? 0);
+
+            return hash;
         }
     }
 }
