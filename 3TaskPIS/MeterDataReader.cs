@@ -25,8 +25,7 @@ namespace _2TaskPIS {
                 }
             }
             catch (IOException ex) {
-                Console.WriteLine($"Error reading file: {ex.Message}");
-                return null;
+                throw new IOException($"Error reading file: {ex.Message}", ex);
             }
         }
     }

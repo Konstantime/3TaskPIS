@@ -67,25 +67,5 @@ namespace _2TaskPIS {
                     return null;
             }
         }
-
-        static private TypeMeterData DetermineTypeOfObject(string codeObject) {
-            string typeResourse = GetTypeFromString(codeObject);
-            switch (typeResourse) {
-                case "water":
-                    return TypeMeterData.MeterDataWater;
-                case "electro":
-                    return TypeMeterData.MeterDataElectricity;
-                default:
-                    return TypeMeterData.invalidType;
-            }
-        }
-
-        static private string GetTypeFromString(string codeObject) {
-
-            int indexFirstForging = codeObject.IndexOf("'");
-            int indexLastForging = codeObject.IndexOf("'", indexFirstForging + 1);
-
-            return codeObject.Substring(indexFirstForging + 1, indexLastForging - indexFirstForging - 1);
-        }
     }
 }

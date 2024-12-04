@@ -11,20 +11,24 @@ namespace _2TaskPISTests {
 
         [TestMethod]
         public void CreatedCorrectMeterDataElectroTest() {
-            IMeterData expected = new MeterDataElectricity("electro", DateTime.ParseExact("2024.12.10", "yyyy.MM.dd", CultureInfo.InvariantCulture),
+            IMeterData expected = new MeterDataElectricity("electro", 
+                DateTime.ParseExact("2024.12.10", "yyyy.MM.dd", CultureInfo.InvariantCulture),
             10.5d, true, 500, 50, "Rusal");
 
-            IMeterData actually = Program.GetMeterData(TypeMeterData.MeterDataElectricity, "'electro';2024.12.10;10.5;true;500;50;Rusal");
+            IMeterData actually = Program.GetMeterData(TypeMeterData.MeterDataElectricity, 
+                "'electro';2024.12.10;10.5;true;500;50;Rusal");
 
             Assert.AreEqual(expected, actually);
         }
 
         [TestMethod]
         public void CreatedCorrectMeterDataWaterTest() {
-            IMeterData expected = new MeterDataWater("water", DateTime.ParseExact("2024.12.10", "yyyy.MM.dd", CultureInfo.InvariantCulture),
+            IMeterData expected = new MeterDataWater("water", 
+                DateTime.ParseExact("2024.12.10", "yyyy.MM.dd", CultureInfo.InvariantCulture),
                 10.5d, true, true, 90);
 
-            IMeterData actually = Program.GetMeterData(TypeMeterData.MeterDataWater, "'water';2024.12.10;10.5;true;true;90");
+            IMeterData actually = Program.GetMeterData(TypeMeterData.MeterDataWater, 
+                "'water';2024.12.10;10.5;true;true;90");
 
             Assert.AreEqual(expected, actually);
         }
@@ -37,9 +41,8 @@ namespace _2TaskPISTests {
             bool actually = dataProcessing.IsCorrectObject("'water';2024.12.10;10.5;true;true;90");
 
             Assert.AreEqual(expected, actually);
-
-            
         }
+
         [TestMethod]
         public void CorrectMeterDataElectricityIsCorrectObjectTest() {
             DataProcessing dataProcessing = new DataProcessing();

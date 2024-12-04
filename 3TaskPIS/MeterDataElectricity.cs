@@ -11,10 +11,8 @@ namespace _2TaskPIS {
         public string Provider { get; set; }
         private DataProcessing dataProcessing = new DataProcessing();
 
-        // Конструктор по умолчанию
         public MeterDataElectricity() { }
 
-        // Конструктор с параметрами
         public MeterDataElectricity(string type, DateTime date, double value, bool isUsed, int numberWatts, int frequency, string provider) {
             TypeResource = type;
             Date = date;
