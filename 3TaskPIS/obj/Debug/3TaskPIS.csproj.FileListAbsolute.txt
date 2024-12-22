@@ -143,3 +143,5 @@ C:\Users\Kostya\source\repos\PIS\3TaskPIS\3TaskPIS\bin\Debug\tr\Microsoft.Visual
 C:\Users\Kostya\source\repos\PIS\3TaskPIS\3TaskPIS\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
 C:\Users\Kostya\source\repos\PIS\3TaskPIS\3TaskPIS\bin\Debug\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
 C:\Users\Kostya\source\repos\PIS\3TaskPIS\3TaskPIS\obj\Debug\3TaskPIS.csproj.Up2Date
+C:\Users\Kostya\source\repos\PIS\3TaskPIS\3TaskPIS\bin\Debug\2TaskPIS.exe.CodeAnalysisLog.xml
+C:\Users\Kostya\source\repos\PIS\3TaskPIS\3TaskPIS\bin\Debug\2TaskPIS.exe.lastcodeanalysissucceeded

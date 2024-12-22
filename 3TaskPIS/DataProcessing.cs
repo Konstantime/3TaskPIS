@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _2TaskPIS {
-    public class DataProcessing {
-        private (DateTime, double, bool) DefineStandardParametersMeterData(string code) {
+namespace TaskPis2 {
+    static public class DataProcessing {
+        static private (DateTime, double, bool) DefineStandardParametersMeterData(string code) {
             code = code.Replace("'", "");
             string[] dates = code.Split(';');
 
@@ -24,20 +24,23 @@ namespace _2TaskPIS {
             try {
                 date = DateTime.ParseExact(dates[1], "yyyy.MM.dd", CultureInfo.InvariantCulture);
             }
-            catch { date = DateTime.Today; }
+            catch (ArgumentNullException) { date = DateTime.Today; }
+            catch (FormatException) { date = DateTime.Today; }
 
             try {
                 value = double.Parse(dates[2], CultureInfo.InvariantCulture);
             }
-            catch { value = 0d; }
+            catch(ArgumentNullException) { value = 0d; }
+            catch (FormatException) { value = 0d; }
 
             try { isUsed = bool.Parse(dates[3]); }
-            catch { isUsed = false; }
+            catch (ArgumentNullException) { isUsed = false; }
+            catch (FormatException) { isUsed = false; }
 
             return (date, value, isUsed);
         }
 
-        public (DateTime, double, bool, int, int, string) DefineTheseParametersForMeterDataElectricity(string code) {
+        static public (DateTime, double, bool, int, int, string) DefineTheseParametersForMeterDataElectricity(string code) {
             if (string.IsNullOrWhiteSpace(code)) {
                 throw new ArgumentNullException(nameof(code), "Код не должен быть null или пустым.");
             }
@@ -58,14 +61,18 @@ namespace _2TaskPIS {
             return (date, value, isUsed, numberWatts, frequency, provider);
         }
 
-        public bool IsCorrectObject(string codeObject) {
-            if (AssumeTypeOfObject(codeObject) == TypeMeterData.invalidType) {
+        static public bool IsCorrectObject(string codeObject) {
+            if (AssumeTypeOfObject(codeObject) == TypeMeterData.InvalidType) {
                 return false;
             }
             return true;
         }
 
-        public (DateTime, double, bool, bool, int) DefineTheseParametersForMeterDataWater(string code) {
+        static public (DateTime, double, bool, bool, int) DefineTheseParametersForMeterDataWater(string code) {
+            if (string.IsNullOrEmpty(code)) {
+                throw new ArgumentNullException(nameof(code), "The 'code' parameter cannot be null or empty.");
+            }
+
             code = code.Replace("'", "");
             string[] dates = code.Split(';');
 
@@ -77,7 +84,7 @@ namespace _2TaskPIS {
             return (date, value, isUsed, isСold, quantity);
         }
 
-        public TypeMeterData DetermineTypeOfObject(string codeObject) {
+        static public TypeMeterData DetermineTypeOfObject(string codeObject) {
             if (string.IsNullOrWhiteSpace(codeObject)) {
                 throw new ArgumentNullException(nameof(codeObject), "Строка не должна быть null или пустой.");
             }
@@ -94,7 +101,7 @@ namespace _2TaskPIS {
                     case "electro":
                         return TypeMeterData.MeterDataElectricity;
                     default:
-                        return TypeMeterData.invalidType;
+                        return TypeMeterData.InvalidType;
                 }
             }
             catch (ArgumentNullException ex) {
@@ -103,22 +110,23 @@ namespace _2TaskPIS {
             catch (FormatException ex) {
                 throw new FormatException($"Ошибка формата: {ex.Message}");
             }
-            catch (Exception ex) {
-                throw new Exception($"Произошла ошибка: {ex.Message}");
-            }
         }
 
-        public TypeMeterData AssumeTypeOfObject(string codeObject) {
+        static public TypeMeterData AssumeTypeOfObject(string codeObject) {
+            if (string.IsNullOrEmpty(codeObject)) {
+                throw new ArgumentNullException(nameof(codeObject), "The 'codeObject' parameter cannot be null or empty.");
+            }
+
             if (codeObject.Split(';').Length - 1 == 6) {
                 return TypeMeterData.MeterDataElectricity;
             }
             else if (codeObject.Split(';').Length - 1 == 5) {
                 return TypeMeterData.MeterDataWater;
             }
-            return TypeMeterData.invalidType;
+            return TypeMeterData.InvalidType;
         }
 
-        public string DetermineTypeOfObjectFormatString(string codeObject) {
+        static public string DetermineTypeOfObjectFormatString(string codeObject) {
             if (string.IsNullOrWhiteSpace(codeObject)) {
                 throw new ArgumentNullException(nameof(codeObject), "Строка не должна быть null или пустой.");
             }
@@ -137,12 +145,9 @@ namespace _2TaskPIS {
             catch (FormatException ex) {
                 throw new FormatException($"Ошибка формата: {ex.Message}");
             }
-            catch (Exception ex) {
-                throw new Exception($"Произошла ошибка: {ex.Message}");
-            }
         }
 
-        private (int indexFirstForging, int indexLastForging) DefineQuotationMarkIndexes(string codeObject) {
+        static private (int indexFirstForging, int indexLastForging) DefineQuotationMarkIndexes(string codeObject) {
             int indexFirstForging = codeObject.IndexOf("'");
             if (indexFirstForging == -1) {
                 throw new FormatException("Не найдена первая кавычка в строке.");

@@ -7,14 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace _2TaskPIS {
+namespace TaskPis2 {
     public interface IMeterData {
         string TypeResource { get; set; }
-        DateTime Date { get; set; }
+        DateTime MeasurementDate { get; set; }
         double Value { get; set; }
         bool IsUsed { get; set; }
 
-        string GetAllProperties();
+        string GetPropertiesAsString();
 
         void SetFieldValues(string code);
     }

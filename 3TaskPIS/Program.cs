@@ -5,20 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public enum TypeMeterData
-{
-    MeterData,
-    MeterDataElectricity,
-    MeterDataWater,
-    invalidType
-}
 
-namespace _2TaskPIS {
+
+namespace TaskPis2 {
+    public enum TypeMeterData {
+        MeterData,
+        MeterDataElectricity,
+        MeterDataWater,
+        InvalidType
+    }
     internal class Program {
-
-        static MeterDataReader meterDataReader = new MeterDataReader();
-        static DataProcessing dataProcessing = new DataProcessing();
-        static void Main(string[] args) {  //  19   вариант 2
+        static void Main() {  //  19   вариант 2
 
             List<IMeterData> meterDatas = CreateListMeterDatas("C:/Users/Kostya/OneDrive/Desktop/MeterData.txt");
 
@@ -29,19 +26,19 @@ namespace _2TaskPIS {
 
         static private void WritingAllValues( List<IMeterData> meterDatas ) {
             foreach( var meterData in meterDatas ) {
-                Console.WriteLine( meterData.GetAllProperties() );
+                Console.WriteLine( meterData.GetPropertiesAsString() );
             }
         }
 
         static public List<IMeterData> CreateListMeterDatas(string path) {
-            string[] lines = meterDataReader.GetLinesCodesFromTextFile(path);
+            string[] lines = MeterDataReader.GetLinesCodesFromTextFile(path);
             List<IMeterData> meterDatas = new List<IMeterData>();
 
             TypeMeterData typeMeterData;
             for (int i = 0; i < lines.Length; i++) {
-                if( dataProcessing.IsCorrectObject(lines[i]) == false) { continue; }
+                if( DataProcessing.IsCorrectObject(lines[i]) == false) { continue; }
 
-                typeMeterData = dataProcessing.DetermineTypeOfObject(lines[i]);
+                typeMeterData = DataProcessing.DetermineTypeOfObject(lines[i]);
 
                 if (GetMeterData(typeMeterData, lines[i]) != null) {
                     meterDatas.Add(GetMeterData(typeMeterData, lines[i]));

@@ -1,11 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using _2TaskPIS;
+using TaskPis2;
 using System.Security.Cryptography;
 using System.Globalization;
 using System.Collections.Generic;
 
-namespace _2TaskPISTests {
+namespace TaskPIS2Tests {
     [TestClass]
     public class UnitTest1 {
 
@@ -35,40 +35,36 @@ namespace _2TaskPISTests {
 
         [TestMethod]
         public void CorrectMeterDataWaterIsCorrectObjectTest() {
-            DataProcessing dataProcessing = new DataProcessing();
             var expected = true;
 
-            bool actually = dataProcessing.IsCorrectObject("'water';2024.12.10;10.5;true;true;90");
+            bool actually = DataProcessing.IsCorrectObject("'water';2024.12.10;10.5;true;true;90");
 
             Assert.AreEqual(expected, actually);
         }
 
         [TestMethod]
         public void CorrectMeterDataElectricityIsCorrectObjectTest() {
-            DataProcessing dataProcessing = new DataProcessing();
             var expected = true;
 
-            bool actually = dataProcessing.IsCorrectObject("'electro';2024.12.10;10.5;true;500;50;Rusal");
+            bool actually = DataProcessing.IsCorrectObject("'electro';2024.12.10;10.5;true;500;50;Rusal");
 
             Assert.AreEqual(expected, actually);
         }
 
         [TestMethod]
         public void EmptyStringIsIncorrectObjectTest() {
-            DataProcessing dataProcessing = new DataProcessing();
             var expected = false;
 
-            bool actually = dataProcessing.IsCorrectObject("");
+            bool actually = DataProcessing.IsCorrectObject("");
 
             Assert.AreEqual(expected, actually);
         }
 
         [TestMethod]
         public void IncorrectStringIsIncorrectObjectTest() {
-            DataProcessing dataProcessing = new DataProcessing();
             var expected = false;
 
-            bool actually = dataProcessing.IsCorrectObject("dbvjdbjvdjjd");
+            bool actually = DataProcessing.IsCorrectObject("dbvjdbjvdjjd");
 
             Assert.AreEqual(expected, actually);
         }

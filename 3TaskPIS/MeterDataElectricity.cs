@@ -1,21 +1,20 @@
 ﻿using System;
 
-namespace _2TaskPIS {
+namespace TaskPis2 {
     public class MeterDataElectricity : IMeterData {
         public string TypeResource { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime MeasurementDate { get; set; }
         public double Value { get; set; }
         public bool IsUsed { get; set; }
         public int NumberWatts { get; set; }
         public int Frequency { get; set; }
         public string Provider { get; set; }
-        private DataProcessing dataProcessing = new DataProcessing();
 
         public MeterDataElectricity() { }
 
         public MeterDataElectricity(string type, DateTime date, double value, bool isUsed, int numberWatts, int frequency, string provider) {
             TypeResource = type;
-            Date = date;
+            MeasurementDate = date;
             Value = value;
             IsUsed = isUsed;
             NumberWatts = numberWatts;
@@ -24,19 +23,19 @@ namespace _2TaskPIS {
         }
 
         public void SetFieldValues(string code) {
-            (Date, Value, IsUsed, NumberWatts, Frequency, Provider) = dataProcessing.DefineTheseParametersForMeterDataElectricity(code);
-            TypeResource = dataProcessing.DetermineTypeOfObjectFormatString(code);
+            (MeasurementDate, Value, IsUsed, NumberWatts, Frequency, Provider) = DataProcessing.DefineTheseParametersForMeterDataElectricity(code);
+            TypeResource = DataProcessing.DetermineTypeOfObjectFormatString(code);
         }
 
-        public string GetAllProperties() {
-            return $"{TypeResource} {Date.Day}.{Date.Month}.{Date.Year} {Value} {IsUsed} {NumberWatts} {Frequency} {Provider}";
+        public string GetPropertiesAsString() {
+            return $"{TypeResource} {MeasurementDate.Day}.{MeasurementDate.Month}.{MeasurementDate.Year} {Value} {IsUsed} {NumberWatts} {Frequency} {Provider}";
         }
 
         // Переопределение метода Equals для проверки равенства по значениям свойств
         public override bool Equals(object obj) {
             if (obj is MeterDataElectricity other) {
                 return TypeResource == other.TypeResource &&
-                       Date == other.Date &&
+                       MeasurementDate == other.MeasurementDate &&
                        Value.Equals(other.Value) &&
                        IsUsed == other.IsUsed &&
                        NumberWatts == other.NumberWatts &&
@@ -52,7 +51,7 @@ namespace _2TaskPIS {
             // Комбинирование хеш-кодов свойств
             int hash = 17;
             hash = hash * 31 + (TypeResource?.GetHashCode() ?? 0);
-            hash = hash * 31 + Date.GetHashCode();
+            hash = hash * 31 + MeasurementDate.GetHashCode();
             hash = hash * 31 + Value.GetHashCode();
             hash = hash * 31 + IsUsed.GetHashCode();
             hash = hash * 31 + NumberWatts.GetHashCode();
