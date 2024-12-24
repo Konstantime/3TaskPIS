@@ -1,42 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|c:\\users\\kostya\\source\\repos\\pis\\3taskpis\\3taskpis\\meterdatawater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|solutionrelative:meterdatawater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|c:\\users\\kostya\\source\\repos\\pis\\3taskpis\\3taskpis\\meterdataelectricity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|solutionrelative:meterdataelectricity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|c:\\users\\kostya\\source\\repos\\pis\\3taskpis\\3taskpis\\meterdatareader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|solutionrelative:meterdatareader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|c:\\users\\kostya\\source\\repos\\pis\\3taskpis\\3taskpis\\imeterdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|solutionrelative:imeterdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|c:\\users\\kostya\\source\\repos\\pis\\3taskpis\\3taskpis\\dataprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|solutionrelative:dataprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|c:\\users\\kostya\\source\\repos\\pis\\3taskpis\\3taskpis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|c:\\users\\kostya\\source\\repos\\pis\\3taskpis\\3taskpis\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|solutionrelative:unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|3TaskPIS||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AE222B0-E1DB-4493-9B22-5B197A952E29}|3TaskPIS.csproj|c:\\users\\kostya\\source\\repos\\pis\\3taskpis\\3taskpis\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|984ae51a-4b21-44e7-822c-dd5e046893ef"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -44,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -57,109 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MeterDataReader.cs",
-              "DocumentMoniker": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\MeterDataReader.cs",
-              "RelativeDocumentMoniker": "MeterDataReader.cs",
-              "ToolTip": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\MeterDataReader.cs",
-              "RelativeToolTip": "MeterDataReader.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T00:19:10.924Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MeterDataWater.cs",
-              "DocumentMoniker": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\MeterDataWater.cs",
-              "RelativeDocumentMoniker": "MeterDataWater.cs",
-              "ToolTip": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\MeterDataWater.cs",
-              "RelativeToolTip": "MeterDataWater.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAcwAkAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T00:11:51.465Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UnitTest1.cs",
-              "DocumentMoniker": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\UnitTest1.cs",
-              "RelativeDocumentMoniker": "UnitTest1.cs",
-              "ToolTip": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\UnitTest1.cs",
-              "RelativeToolTip": "UnitTest1.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAuwEIAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T23:47:25.406Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MeterDataElectricity.cs",
-              "DocumentMoniker": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\MeterDataElectricity.cs",
-              "RelativeDocumentMoniker": "MeterDataElectricity.cs",
-              "ToolTip": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\MeterDataElectricity.cs",
-              "RelativeToolTip": "MeterDataElectricity.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAcwAoAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T23:32:00.141Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAuwBAAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T23:27:20.285Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IMeterData.cs",
-              "DocumentMoniker": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\IMeterData.cs",
-              "RelativeDocumentMoniker": "IMeterData.cs",
-              "ToolTip": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\IMeterData.cs",
-              "RelativeToolTip": "IMeterData.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAqwAwAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T23:27:07.876Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DataProcessing.cs",
-              "DocumentMoniker": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\DataProcessing.cs",
-              "RelativeDocumentMoniker": "DataProcessing.cs",
-              "ToolTip": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\DataProcessing.cs",
-              "RelativeToolTip": "DataProcessing.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAAAHQAAABUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T23:20:21.309Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "3TaskPIS",
-              "DocumentMoniker": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\3TaskPIS.csproj",
-              "RelativeDocumentMoniker": "3TaskPIS.csproj",
-              "ToolTip": "C:\\Users\\Kostya\\source\\repos\\PIS\\3TaskPIS\\3TaskPIS\\3TaskPIS.csproj",
-              "RelativeToolTip": "3TaskPIS.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-21T23:17:20.809Z",
-              "EditorCaption": ""
             }
           ]
         },
