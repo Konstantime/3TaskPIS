@@ -8,7 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TaskPis2 {
+    /// <summary>
+    ///   <br />
+    /// </summary>
     static public class DataProcessing {
+        /// <summary>Defines the standard parameters meter data.</summary>
+        /// <param name="code">The code.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <exception cref="System.FormatException">Неверный формат кода: недостаточно частей для разбора.</exception>
         static private (DateTime, double, bool) DefineStandardParametersMeterData(string code) {
             code = code.Replace("'", "");
             string[] dates = code.Split(';');
@@ -40,6 +49,13 @@ namespace TaskPis2 {
             return (date, value, isUsed);
         }
 
+        /// <summary>Defines the these parameters for meter data electricity.</summary>
+        /// <param name="code">The code.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <exception cref="System.ArgumentNullException">code - Код не должен быть null или пустым.</exception>
+        /// <exception cref="System.FormatException">Неверный формат кода: недостаточно частей для разбора.</exception>
         static public (DateTime, double, bool, int, int, string) DefineTheseParametersForMeterDataElectricity(string code) {
             if (string.IsNullOrWhiteSpace(code)) {
                 throw new ArgumentNullException(nameof(code), "Код не должен быть null или пустым.");
@@ -68,6 +84,12 @@ namespace TaskPis2 {
             return true;
         }
 
+        /// <summary>Defines the these parameters for meter data water.</summary>
+        /// <param name="code">The code.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <exception cref="System.ArgumentNullException">code - The 'code' parameter cannot be null or empty.</exception>
         static public (DateTime, double, bool, bool, int) DefineTheseParametersForMeterDataWater(string code) {
             if (string.IsNullOrEmpty(code)) {
                 throw new ArgumentNullException(nameof(code), "The 'code' parameter cannot be null or empty.");
@@ -84,6 +106,15 @@ namespace TaskPis2 {
             return (date, value, isUsed, isСold, quantity);
         }
 
+        /// <summary>Determines the type of object.</summary>
+        /// <param name="codeObject">The code object.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <exception cref="System.ArgumentNullException">codeObject - Строка не должна быть null или пустой.
+        /// or
+        /// Ошибка: {ex.Message}</exception>
+        /// <exception cref="System.FormatException">Ошибка формата: {ex.Message}</exception>
         static public TypeMeterData DetermineTypeOfObject(string codeObject) {
             if (string.IsNullOrWhiteSpace(codeObject)) {
                 throw new ArgumentNullException(nameof(codeObject), "Строка не должна быть null или пустой.");
@@ -112,6 +143,12 @@ namespace TaskPis2 {
             }
         }
 
+        /// <summary>Assumes the type of object.</summary>
+        /// <param name="codeObject">The code object.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <exception cref="System.ArgumentNullException">codeObject - The 'codeObject' parameter cannot be null or empty.</exception>
         static public TypeMeterData AssumeTypeOfObject(string codeObject) {
             if (string.IsNullOrEmpty(codeObject)) {
                 throw new ArgumentNullException(nameof(codeObject), "The 'codeObject' parameter cannot be null or empty.");
@@ -126,6 +163,15 @@ namespace TaskPis2 {
             return TypeMeterData.InvalidType;
         }
 
+        /// <summary>Determines the type of object format string.</summary>
+        /// <param name="codeObject">The code object.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <exception cref="System.ArgumentNullException">codeObject - Строка не должна быть null или пустой.
+        /// or
+        /// Ошибка: {ex.Message}</exception>
+        /// <exception cref="System.FormatException">Ошибка формата: {ex.Message}</exception>
         static public string DetermineTypeOfObjectFormatString(string codeObject) {
             if (string.IsNullOrWhiteSpace(codeObject)) {
                 throw new ArgumentNullException(nameof(codeObject), "Строка не должна быть null или пустой.");
@@ -147,6 +193,14 @@ namespace TaskPis2 {
             }
         }
 
+        /// <summary>Defines the quotation mark indexes.</summary>
+        /// <param name="codeObject">The code object.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <exception cref="System.FormatException">Не найдена первая кавычка в строке.
+        /// or
+        /// Не найдена вторая кавычка в строке.</exception>
         static private (int indexFirstForging, int indexLastForging) DefineQuotationMarkIndexes(string codeObject) {
             int indexFirstForging = codeObject.IndexOf("'");
             if (indexFirstForging == -1) {

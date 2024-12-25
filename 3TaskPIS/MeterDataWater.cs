@@ -7,7 +7,7 @@ namespace TaskPis2 {
         public double Value { get; set; }
         public bool IsUsed { get; set; }
         public bool IsCold { get; set; }
-        public int Quantity { get; set; } орама
+        public int Quantity { get; set; }
 
         public MeterDataWater() { }
 

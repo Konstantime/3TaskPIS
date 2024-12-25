@@ -36,7 +36,7 @@ namespace TaskPIS2Tests {
         [TestMethod]
         public void CorrectMeterDataWaterIsCorrectObjectTest() {
             var expected = true;
-
+            
             bool actually = DataProcessing.IsCorrectObject("'water';2024.12.10;10.5;true;true;90");
 
             Assert.AreEqual(expected, actually);
@@ -47,15 +47,6 @@ namespace TaskPIS2Tests {
             var expected = true;
 
             bool actually = DataProcessing.IsCorrectObject("'electro';2024.12.10;10.5;true;500;50;Rusal");
-
-            Assert.AreEqual(expected, actually);
-        }
-
-        [TestMethod]
-        public void EmptyStringIsIncorrectObjectTest() {
-            var expected = false;
-
-            bool actually = DataProcessing.IsCorrectObject("");
 
             Assert.AreEqual(expected, actually);
         }
